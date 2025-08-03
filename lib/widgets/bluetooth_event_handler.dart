@@ -5,10 +5,10 @@ class BluetoothEventHandler extends StatelessWidget {
   final Color color;
 
   const BluetoothEventHandler({
-    Key? key,
+    super.key,
     required this.event,
     required this.color,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

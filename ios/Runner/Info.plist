@@ -49,5 +49,9 @@
 	<string>Uses Bluetooth to connect to Even Glasses.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Uses location to discover nearby Bluetooth devices.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
 </dict>
 </plist>

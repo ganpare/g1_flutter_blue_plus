@@ -3,8 +3,6 @@ import 'package:permission_handler/permission_handler.dart';
 import 'dart:async';
 import '../utils/constants.dart';
 import '../models/glass.dart';
-import 'commands.dart';
-import 'dart:convert';
 
 typedef OnGlassFound = void Function(Glass);
 typedef OnScanTimeout = void Function(String);

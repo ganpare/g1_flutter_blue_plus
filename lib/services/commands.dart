@@ -168,7 +168,7 @@ Future<String?> sendText(String textMessage, BluetoothManager bluetoothManager, 
       maxPages: totalPages,
       screenStatus: screenStatus,
     );
-    await Future.delayed(Duration(milliseconds: 100));
+    await Future.delayed(const Duration(milliseconds: 100));
   }
 
   String lastPageText = '';
@@ -239,9 +239,9 @@ Future<void> sendNotification(String message, BluetoothManager bluetoothManager)
     if (bluetoothManager.leftGlass != null && bluetoothManager.rightGlass != null) {
       for (int i = 0; i < notificationChunks.length; i++) {
         await bluetoothManager.leftGlass!.sendData(notificationChunks[i]);
-        await Future.delayed(Duration(milliseconds: 100));
+        await Future.delayed(const Duration(milliseconds: 100));
         await bluetoothManager.rightGlass!.sendData(notificationChunks[i]);
-        await Future.delayed(Duration(milliseconds: 100));
+        await Future.delayed(const Duration(milliseconds: 100));
       }
     } else {
       print("Could not connect to glasses devices.");

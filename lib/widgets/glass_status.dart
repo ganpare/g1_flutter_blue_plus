@@ -5,10 +5,10 @@ class GlassStatus extends StatelessWidget {
   final String status;
 
   const GlassStatus({
-    Key? key,
+    super.key,
     required this.side,
     required this.status,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +35,9 @@ class GlassStatus extends StatelessWidget {
       children: [
         Text(
           '$side Glass',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
         Text(
           status,
           style: TextStyle(color: statusColor),
