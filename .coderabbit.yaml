@@ -1,0 +1,114 @@
+# CodeRabbit configuration for Flutter/Dart project
+# Even Glasses Control App - Bluetooth smart glasses control application
+
+# Language setting (use English for international project)
+language: en
+
+# Review settings
+reviews:
+  # Enable automatic reviews for pull requests
+  auto_review:
+    enabled: true
+  
+  # Review settings
+  request_changes_workflow: false
+  
+  # File patterns to include in reviews
+  path_filters:
+    - "lib/**/*.dart"
+    - "test/**/*.dart"
+    - "integration_test/**/*.dart"
+    - "android/**/*.gradle"
+    - "android/**/*.kt"
+    - "android/**/*.java"
+    - "ios/**/*.swift"
+    - "ios/**/*.m"
+    - "pubspec.yaml"
+    - "analysis_options.yaml"
+
+# Chat settings
+chat:
+  auto_reply: false
+
+# Review profile (chill = less aggressive, balanced feedback)
+review_profile: chill
+
+# Custom instructions for this specific project
+instructions: |
+  This is a Flutter application for controlling Even smart glasses via Bluetooth.
+  
+  **Project Context:**
+  - Bluetooth Low Energy (BLE) communication with smart glasses
+  - Japanese text file processing with multiple encoding support (Shift_JIS, EUC-JP, UTF-8)
+  - Audio service integration for media controls
+  - File picker integration for text file selection
+  - Page-based text display system
+  
+  **Key Review Focus Areas:**
+  
+  1. **Bluetooth Communication**
+     - Proper connection/disconnection handling
+     - Error management for BLE operations
+     - Data transmission protocol adherence
+     - Resource cleanup and memory management
+     - Timeout handling for BLE operations
+  
+  2. **Japanese Text Encoding**
+     - Correct encoding detection and conversion
+     - Character set validation
+     - Fallback mechanisms for encoding failures
+     - Performance of text processing operations
+     - Edge cases with special Japanese characters
+  
+  3. **State Management**
+     - Proper Flutter widget lifecycle management
+     - Async operations and Future handling
+     - Stream subscription management and disposal
+     - UI state consistency
+     - Memory leak prevention in listeners
+  
+  4. **Error Handling & User Experience**
+     - Comprehensive try-catch blocks
+     - User-friendly error messages in Japanese when appropriate
+     - Graceful degradation on failures
+     - Permission handling (Bluetooth, notifications, file access)
+     - Loading states and progress indicators
+  
+  5. **Performance & Security**
+     - Memory leak prevention
+     - Efficient file reading operations
+     - Secure Bluetooth communication
+     - Battery usage optimization
+     - Large file handling performance
+  
+  6. **Testing & Maintainability**
+     - Unit test coverage for business logic
+     - Widget tests for UI components
+     - Integration tests for BLE functionality
+     - Code documentation and inline comments
+  
+  **Code Quality Standards:**
+  - Follow Dart/Flutter best practices and effective_dart guidelines
+  - Ensure null safety compliance
+  - Maintain clean architecture principles (separation of concerns)
+  - Include appropriate documentation and comments
+  - Use meaningful variable and function names (English preferred)
+  - Proper async/await usage and error propagation
+  
+  **Special Considerations:**
+  - Pay attention to platform-specific code differences (Android vs iOS)
+  - Bluetooth permission handling differences between platforms
+  - Text rendering performance with Japanese characters
+  - Background processing limitations on mobile platforms
+
+# Knowledge base settings
+knowledge_base:
+  opt_out: false
+
+# Disable early access features for stability
+early_access: false
+
+# Additional settings for better review quality
+tone_instructions: |
+  Be constructive and educational. Focus on critical issues first (bugs, security, performance). 
+  Consider mobile app context and Japanese language requirements.
