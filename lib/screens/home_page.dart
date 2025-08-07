@@ -12,6 +12,7 @@ import '../services/audio_handler.dart';
 import '../services/bluetooth_manager.dart';
 import '../services/commands.dart';
 import '../widgets/glass_status.dart';
+import 'enhanced_display_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -299,7 +300,30 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             const Divider(height: 30),
-            const Text('2. Select and Control Text File', style: TextStyle(fontWeight: FontWeight.bold)),
+            const Text('2. Enhanced Display Options', style: TextStyle(fontWeight: FontWeight.bold)),
+            ElevatedButton.icon(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => EnhancedDisplayPage(bluetoothManager: bluetoothManager),
+                  ),
+                );
+              },
+              icon: const Icon(Icons.dashboard),
+              label: const Text('Enhanced Display'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.purple,
+                foregroundColor: Colors.white,
+              ),
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              'Create bordered text, progress bars, menus, charts and more!',
+              style: TextStyle(fontSize: 12, color: Colors.grey),
+            ),
+            const Divider(height: 30),
+            const Text('3. Select and Control Text File', style: TextStyle(fontWeight: FontWeight.bold)),
             ElevatedButton(
               onPressed: _pickFile,
               child: const Text('Select .txt File'),
