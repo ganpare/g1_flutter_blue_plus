@@ -1,10 +1,7 @@
-import 'package:even_glasses/services/audio_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/glass_provider.dart';
 import 'screens/home_page.dart';
-
-late PageTurnerAudioHandler _audioHandler;
 
 void main() {
   runApp(

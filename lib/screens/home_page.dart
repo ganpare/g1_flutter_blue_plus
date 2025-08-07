@@ -244,9 +244,35 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _goToPreviousPage() {
+    if (_currentPageIndex > 0) {
+      setState(() {
+        _currentPageIndex--;
+      });
+      _sendCurrentPageToDevice();
+      if (_isAudioServiceReady) {
+        _audioHandler.setPageIndex(_currentPageIndex);
+      }
+    }
+  }
+
+  void _goToNextPage() {
+    if (_currentPageIndex < _pages.length - 1) {
+      setState(() {
+        _currentPageIndex++;
+      });
+      _sendCurrentPageToDevice();
+      if (_isAudioServiceReady) {
+        _audioHandler.setPageIndex(_currentPageIndex);
+      }
+    }
+  }
+
   @override
   void dispose() {
-    _audioHandler.stop();
+    if (_isAudioServiceReady) {
+      _audioHandler.stop();
+    }
     bluetoothManager.leftGlass?.disconnect();
     bluetoothManager.rightGlass?.disconnect();
     super.dispose();
@@ -309,10 +335,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
+            const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: _pages.isNotEmpty && _currentPageIndex > 0 ? _goToPreviousPage : null,
+                  child: const Text('Previous'),
+                ),
+                ElevatedButton(
+                  onPressed: _pages.isNotEmpty && _currentPageIndex < _pages.length - 1 ? _goToNextPage : null,
+                  child: const Text('Next'),
+                ),
+              ],
+            ),
             const SizedBox(height: 8),
             const Center(
               child: Text(
-                'Use a Bluetooth media controller to turn pages.',
+                'Use buttons above or Bluetooth media controller to turn pages.',
                 style: TextStyle(fontStyle: FontStyle.italic, color: Colors.grey),
               ),
             ),
